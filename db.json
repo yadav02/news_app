@@ -188,7 +188,8 @@
         "source_id": "ascii",
         "country": ["japan"],
         "category": ["business"],
-        "language": "japanese"
+        "language": "japanese",
+        "type":"half"
       },
       {
         "id": 2,

@@ -10,7 +10,7 @@ import Loader from "../Loader/Loader";
 import { useStyles } from './customStyle';
 
 
-const NewsCard = ({ newsData, type }) => {
+const NewsCard = ({ newsData }) => {
 
 
   let ImgStyle = {
@@ -37,8 +37,8 @@ const NewsCard = ({ newsData, type }) => {
         return (
           <Box
             p={2}
-            width={type ? '50%' : '100%'}
-            className={type ? '' : classes.single}
+            width={item.type ? '50%' : '100%'}
+            className={item.type ? '' : classes.single}
             key={index}
             style={{ boxSizing: "border-box" }}
             px={2}
@@ -52,7 +52,7 @@ const NewsCard = ({ newsData, type }) => {
                     to={`/newsdetails/${index}`}
                     style={{ textDecoration: "none" }}
                   >
-                    <NewsImg imgData={item.image_url} styling={type ? ImgStyle : NewsImgStyle} />
+                    <NewsImg imgData={item.image_url} styling={item.type ? ImgStyle : NewsImgStyle} imgDesc={item.source_id} />
                   </Link>
                 </Box>
                 <Box>

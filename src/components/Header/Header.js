@@ -24,7 +24,7 @@ const Header = () => {
     <AppBar>
       <Container maxWidth="xl">
         <Toolbar disableGutters style={{ justifyContent: "center" }}>
-          <Box display={"flex"} position="sticky" top={0}>
+          <Box display={"flex"} position="sticky" top={0} alignItems={'center'}>
             <AdbIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
             <Typography
               variant="h6"
@@ -48,6 +48,8 @@ const Header = () => {
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             justifyContent="flex-end"
+            width={'70px'}
+            paddingLeft={'50px'}
           >
             {getQuotesApi.isLoading ? <Loader /> :(
               <Typography>

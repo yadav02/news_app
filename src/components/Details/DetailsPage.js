@@ -4,25 +4,38 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useApi from "../Hooks/useApi";
 import newsApi from '../API/endPointApi'
+import newsApi1 from '../API/endPointApi'
 import NewsImg from "../NewsImg/NewsImg";
 import PublishDateTime from "../publisDate/PublishDateTime";
-
-import FacebookIcon from '@mui/icons-material/Facebook';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import TelegramIcon from '@mui/icons-material/Telegram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import MailIcon from '@mui/icons-material/Mail';
-import SocailIcons from '../socailIcons/socailIcons';
+import SocailIcons from "../socailIcons/socailIcons";
 
 
 const DetailsPage = () => {
 
   const getNewsApi = useApi(newsApi.getNewsData)
+  const getNewsApi1 = useApi(newsApi1.getNewsData1)
+
+
+  const getSocailIcons = data => {
+
+    return (
+
+      <>
+        <data.facebook />
+        <data.WhatsApp />
+        <data.Telegram />
+        <data.Linkedin />
+        <data.Twitter />
+        <data.Mail />
+      </>
+
+    )
+  }
 
 
   useEffect(() => {
     getNewsApi.request()
+    getNewsApi1.request()
 
   }, []);
 
@@ -37,9 +50,9 @@ const DetailsPage = () => {
     window.open(url, '_blank', 'noopener,noreferrer')
 
   }
-
+  let finalData = [...getNewsApi?.data, ...getNewsApi1?.data]
   const { newsId } = useParams();
-  const thisNews = getNewsApi.data?.find((newsDetails, index) => index == newsId);
+  const thisNews = finalData?.find((newsDetails, index) => index == newsId);
   // const thisNews = getNewsApi.data?.results?.find((newsDetails, index) => index == newsId);
 
   return (
@@ -53,22 +66,17 @@ const DetailsPage = () => {
           style={{ boxSizing: "border-box" }}
           key={thisNews?.id}
         >
-          <Box display={"flex"} justifyContent="center" pb={2}>
-            <NewsImg imgData={thisNews?.image_url} styling={detailPageImgStyle} />
+          <Box display={'flex'} ml={5}>
             <PublishDateTime datatime={thisNews?.pubDate} />
-            <Box>
-              <SocailIcons icons={<FacebookIcon />} />
-              <SocailIcons icons={<WhatsAppIcon />} />
-              <SocailIcons icons={<TelegramIcon />} />
-              <SocailIcons icons={<LinkedInIcon />} />
-              <SocailIcons icons={<TwitterIcon />} />
-              <SocailIcons icons={<MailIcon />} />
-            </Box>
+            <SocailIcons func={getSocailIcons} />
+          </Box>
+          <Box justifyContent="center" pb={2}>
+            <NewsImg imgData={thisNews?.image_url} styling={detailPageImgStyle} imgDesc={thisNews?.source_id} />
           </Box>
           <Typography variant="h5" sx={{ color: "red" }} pb={1}>
             {thisNews?.keywords}
           </Typography>
-          <Typography variant="h6" pb={1}>
+          <Typography variant="h6" pb={1} textAlign={'center'}>
             {thisNews?.description}
           </Typography>
         </Box>
