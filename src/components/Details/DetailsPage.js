@@ -16,23 +16,6 @@ const DetailsPage = () => {
   const getNewsApi1 = useApi(newsApi1.getNewsData1)
 
 
-  const getSocailIcons = data => {
-
-    return (
-
-      <>
-        <data.facebook />
-        <data.WhatsApp />
-        <data.Telegram />
-        <data.Linkedin />
-        <data.Twitter />
-        <data.Mail />
-      </>
-
-    )
-  }
-
-
   useEffect(() => {
     getNewsApi.request()
     getNewsApi1.request()
@@ -68,7 +51,7 @@ const DetailsPage = () => {
         >
           <Box display={'flex'} ml={5}>
             <PublishDateTime datatime={thisNews?.pubDate} />
-            <SocailIcons func={getSocailIcons} />
+            <SocailIcons getSocailIcons={['fb', 'wt', 'tel', 'link', 'tw']} />
           </Box>
           <Box justifyContent="center" pb={2}>
             <NewsImg imgData={thisNews?.image_url} styling={detailPageImgStyle} imgDesc={thisNews?.source_id} />
