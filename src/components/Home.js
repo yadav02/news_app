@@ -2,8 +2,8 @@ import { useEffect } from "react";
 import NewsCard from "./NewsCard/NewsCard";
 import Box from "@mui/material/Box";
 import useApi from "./Hooks/useApi";
-import newsApi from './API/endPointApi'
-import newsApi1 from './API/endPointApi'
+import newsApi from '../API/endPointApi'
+import newsApi1 from '../API/endPointApi'
 
 
 const Home = () => {

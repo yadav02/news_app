@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import useApi from "../Hooks/useApi";
-import weatherApi from '../API/endPointApi';
+import weatherApi from '../../API/endPointApi';
 import Box from "@mui/material/Box";
 import Loader from "../Loader/Loader";
 

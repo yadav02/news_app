@@ -3,8 +3,8 @@ import Typography from "@mui/material/Typography";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import useApi from "../Hooks/useApi";
-import newsApi from '../API/endPointApi'
-import newsApi1 from '../API/endPointApi'
+import newsApi from '../../API/endPointApi'
+import newsApi1 from '../../API/endPointApi'
 import NewsImg from "../NewsImg/NewsImg";
 import PublishDateTime from "../publisDate/PublishDateTime";
 import SocailIcons from "../socailIcons/socailIcons";
@@ -51,7 +51,7 @@ const DetailsPage = () => {
         >
           <Box display={'flex'} ml={5}>
             <PublishDateTime datatime={thisNews?.pubDate} />
-            <SocailIcons getSocailIcons={['fb', 'wt', 'tel', 'link', 'tw']} />
+            <SocailIcons getSocailIcons={['fb','wt','tel', 'link', 'mail']} />
           </Box>
           <Box justifyContent="center" pb={2}>
             <NewsImg imgData={thisNews?.image_url} styling={detailPageImgStyle} imgDesc={thisNews?.source_id} />

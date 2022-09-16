@@ -6,18 +6,22 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import MailIcon from '@mui/icons-material/Mail';
 
 
+
 const SocailIcons = ({ getSocailIcons }) => {
 
-    return (
-        getSocailIcons.map(item => {
-            return item === 'fb' ? <FacebookIcon /> :
-                item === 'wt' ? <WhatsAppIcon /> :
-                    item === 'tel' ? <TelegramIcon /> :
-                        item === 'link' ? <LinkedInIcon /> :
-                            item === 'tw' ? <TwitterIcon /> :
-                                item === 'mail' ? <MailIcon /> : ''
-        })
-    )
+    const socailData = {
+        'fb': <FacebookIcon />,
+        'wt': <WhatsAppIcon />,
+        'tel': <TelegramIcon />,
+        'link': <LinkedInIcon />,
+        'tw': <TwitterIcon />,
+        'mail': <MailIcon />
+    }
+
+
+    return (getSocailIcons.map(item => {
+        return socailData[item]
+    }))
 }
 
 export default SocailIcons

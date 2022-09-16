@@ -7,7 +7,7 @@ import Container from "@mui/material/Container";
 import AdbIcon from "@mui/icons-material/Adb";
 import Loader from "../Loader/Loader";
 import useApi from "../Hooks/useApi";
-import quotesApi from '../API/endPointApi'
+import quotesApi from '../../API/endPointApi'
 import Weather from "../Weather/weather";
 
 
