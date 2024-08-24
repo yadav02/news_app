@@ -1,0 +1,26 @@
+.input-box {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .line-numbers {
+    width: 30px; /* Adjust the width as needed */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-right: 1px solid #ccc;
+    text-align: right;
+    user-select: none;
+  }
+  
+  .line-number {
+    margin-bottom: 1px;
+  }
+  
+  .input-text {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    resize: none;
+    font-size: 16px;
+  }
+  

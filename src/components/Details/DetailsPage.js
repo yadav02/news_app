@@ -17,8 +17,10 @@ const DetailsPage = () => {
 
 
   useEffect(() => {
+
     getNewsApi.request()
     getNewsApi1.request()
+    
 
   }, []);
 

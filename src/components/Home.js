@@ -19,7 +19,9 @@ const Home = () => {
   }, [])
 
   getNewsApi?.data.map(item => {
+
     item['type'] = true
+    
   })
 
   let finalData = [...getNewsApi?.data, ...getNewsApi1?.data]
